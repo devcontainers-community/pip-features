@@ -1,13 +1,13 @@
 #!/bin/bash
 set -e
 
-if [[ -e src/$1 ]]; then
+if [[ -e src/$1 || -e test/$1 ]]; then
   echo "Already exists $1"
   exit 1
 fi
 
 mkdir src/$1
-cd src/$1
+pushd src/$1
 
 cat <<EOF | tee devcontainer-feature.json
 {
@@ -33,9 +33,19 @@ EOF
 cat <<EOF | tee install.sh
 #!/bin/bash
 set -ex
-if [[ $VERSION == latest ]]; then
-  pipx install $id
+if [[ \$VERSION == latest ]]; then
+  pipx install $1
 else
-  pipx install $id==$VERSION
+  pipx install $1==\$VERSION
 fi
+EOF
+
+popd
+mkdir test/$1
+pushd test/$1
+
+cat <<EOF | tee test.sh
+#!/bin/bash
+set -ex
+$1 --version
 EOF

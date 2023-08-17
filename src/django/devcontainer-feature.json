@@ -1,0 +1,18 @@
+{
+  "id": "django",
+  "version": "1.0.0",
+  "name": "<TODO: Add title>",
+  "documentationURL": "http://github.com/jazzbaand/pip-features/tree/main/src/django",
+  "description": "<TODO: Add description>",
+  "options": {
+    "version": {
+      "default": "latest",
+      "description": "Select the version to install.",
+      "proposals": ["latest"],
+      "type": "string"
+    }
+  },
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/python": {}
+  }
+}
