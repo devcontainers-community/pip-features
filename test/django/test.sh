@@ -1,3 +1,3 @@
 #!/bin/bash
 set -ex
-django --version
+django-admin --version
