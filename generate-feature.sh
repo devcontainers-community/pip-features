@@ -14,7 +14,7 @@ cat <<EOF | tee devcontainer-feature.json
   "id": "$1",
   "version": "1.0.0",
   "name": "<TODO: Add title>",
-  "documentationURL": "http://github.com/devcontainers-community/npm-features/tree/main/src/$1",
+  "documentationURL": "http://github.com/jazzbaand/pip-features/tree/main/src/$1",
   "description": "<TODO: Add description>",
   "options": {
     "version": {
@@ -25,7 +25,7 @@ cat <<EOF | tee devcontainer-feature.json
     }
   },
   "dependsOn": {
-    "ghcr.io/devcontainers/features/node": {}
+    "ghcr.io/devcontainers/features/python": {}
   }
 }
 EOF
@@ -33,5 +33,9 @@ EOF
 cat <<EOF | tee install.sh
 #!/bin/bash
 set -ex
-npm install -g $id@\$VERSION
+if [[ $VERSION == latest ]]; then
+  pipx install $id
+else
+  pipx install $id==$VERSION
+fi
 EOF
