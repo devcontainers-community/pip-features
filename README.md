@@ -11,6 +11,9 @@
 <!-- prettier-ignore-start -->
 <!-- START_FEATURE_LIST -->
 
+- **[<TODO: Add title>](http://github.com/jazzbaand/pip-features/tree/main/src/bikeshed)** - <TODO: Add description>
+- **[<TODO: Add title>](http://github.com/jazzbaand/pip-features/tree/main/src/pytest)** - <TODO: Add description>
+
 <!-- END_FEATURE_LIST -->
 <!-- prettier-ignore-end -->
 
